@@ -1,0 +1,5 @@
+Group,Config,Low_cut,High_cut,High_genes,Low_genes,High_rxns,Low_rxns,High_satisfied,Low_satisfied,Objective,MIP_gap,Status
+AD,Baseline_25_75,-0.0586,0.0403,691,691,3815,840,3278,739,3980,0.0181,optimal
+AD,Strict_15_85,-0.0909,0.0612,415,415,3074,475,2679,412,3060,0.0199,optimal
+Control,Baseline_25_75,-0.0312,0.0259,691,691,2549,1491,2165,1352,3480,0.0198,optimal
+Control,Strict_15_85,-0.0521,0.0396,415,415,1675,871,1388,816,2180,0.0197,optimal
