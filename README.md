@@ -52,18 +52,26 @@ Two details that matter for interpretation:
 ## 3. Method in brief
 
 ```mermaid
-flowchart LR
-    A[GSE33000 series matrix] --> B[1_prepare_data.py<br/>labels · probe→Ensembl · group means]
-    B --> C[processed_AD / Control _expression.csv]
-    C --> D[2_run_imat.py<br/>percentile calls · GPR → reaction labels · MILP]
-    M[Human-GEM.xml] --> D
-    D --> E[reaction_results_*.csv<br/>iMAT_parameter_comparison.csv]
-    E --> F[3_analyze_results.py<br/>subsystem comparison · noise control · figure]
+flowchart TD
+    A["GSE33000 Series Matrix"] --> B["1_prepare_data.py: Data Preparation"]
+    B --> C["Processed AD Expression CSV"]
+    B --> D["Processed Control Expression CSV"]
 
+    C --> E["2_run_imat.py: iMAT Reconstruction"]
+    D --> E
+    M["Human-GEM.xml"] --> E
 
-Here is your fully completed and scientifically populated `README.md`. The placeholders have been filled using your exact solver outputs, the GitHub URL has been updated, and the biological interpretation has been written to reflect standard neuro-metabolic literature regarding Alzheimer's pathology.
+    E --> F["reaction_results_*.csv"]
+    E --> G["iMAT_parameter_comparison.csv"]
 
+    F --> H["3_analyze_results.py: Statistical Analysis"]
+    G --> H
 
+    H --> I["Subsystem Comparison"]
+    H --> J["Noise Control"]
+    H --> K["Figure Generation"]
+
+```
 
 1. **Prepare (`1_prepare_data.py`)** – reads sample diagnosis, maps GPL4372 probes to Human-GEM Ensembl IDs
 (platform table first, MyGene.info fallback; the map is cached in `probe_to_ensembl.csv`), averages probes per
@@ -157,7 +165,7 @@ integrated analysis of RNA-Seq-based genomic variants and gene expression levels
 ## 8. AI-use disclosure
 
 AI assistance (Claude, Anthropic, Gemini) was used for debugging, code review and drafting of the scripts and this
-README structure. The synopsis, the interpretation of results and the choice of analysis are the author's own.
+README structure.
 
 ```
 
